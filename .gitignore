@@ -14,28 +14,6 @@ server/node_modules/
 client/build/
 server/build/
 
-# IDE files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
 
-# Logs and backups
-*.log
-*.bak
-*.swp
 
-# Compiled files
-*.css
-*.js
-*.map
 
-# Cache and temporary files
-*.cache/
-*.tmp/
-*.temp/
-.DS_Store
-Thumbs.db
-
-# Ignore NPM debug log
-npm-debug.log*
