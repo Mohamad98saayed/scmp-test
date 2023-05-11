@@ -11,7 +11,7 @@ function NavBar({ style }) {
 
   useEffect(() => {
     dispatch(getAllSwSEvents());
-  }, []);
+  }, [dispatch]);
 
   const navRef = useRef();
   const showNavbar = () => {
@@ -30,7 +30,7 @@ function NavBar({ style }) {
 
           <select id="sws">
             <option> </option>
-            {sws.length > 0
+            {sws?.length > 0
               ? sws.map((ele, index) => {
                   return (
                     <option>
