@@ -1,6 +1,6 @@
 services:
   server:
-    container_name: express-server
+    image: scmp-server
     build:
       context: ./server
     ports:
@@ -28,18 +28,19 @@ services:
       - /app/node_modules
     networks:
       - mern-app
-    depends_on:
-      - mongo
-    # command: npm start
+    # depends_on:
+    #   - mongo
 
   client:
-    container_name: react-app
+    image: scmp-client
+    stdin_open: true
     build:
       context: ./client
     ports:
       - 3000:3000
     environment:
       - WATCHPACK_POLLING=true
+      - http_proxy=http://server:5000
     volumes:
       - ./client:/app:cache
       - /app/node_modules
@@ -47,23 +48,22 @@ services:
       - mern-app
     depends_on:
       - server
-    # command: npm run build
 
-  mongo:
-    container_name: mongo-db
-    image: mongo
-    ports:
-      - 27018:27017
-    volumes:
-      - mongo-data:/data/db
-    networks:
-      - mern-app
-    logging:
-      driver: none
+#   mongo:
+#     container_name: mongo-db
+#     image: mongo
+#     ports:
+#       - 27018:27017
+#     volumes:
+#       - mongo-data:/data/db
+#     networks:
+#       - mern-app
+#     logging:
+#       driver: none
 
-volumes:
-  mongo-data:
-    driver: local
+# volumes:
+#   mongo-data:
+#     driver: local
 
 networks:
   mern-app:

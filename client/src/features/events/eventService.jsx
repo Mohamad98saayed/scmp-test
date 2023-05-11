@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:5000/api/v1/event";
+const API_URL = "/api/v1/event";
 //Get all Events
 const getEvents = async () => {
   const response = await axios.get(API_URL);

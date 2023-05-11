@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:5000/api/v1/sws";
+const API_URL = "/api/v1/sws";
 //Get all sws events
 const getAllSwSEvents = async () => {
   const response = await axios.get(API_URL);
@@ -9,7 +9,7 @@ const getAllSwSEvents = async () => {
 // Get sws event by id
 const getSwsEventById = async (id) => {
   try {
-    const response = await axios.get(`http://localhost:5000/api/v1/sws/${id}`);
+    const response = await axios.get(`/api/v1/sws/${id}`);
     console.log("succeeded", response.data);
     return response.data;
   } catch (err) {
