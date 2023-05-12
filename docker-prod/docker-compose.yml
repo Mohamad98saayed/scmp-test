@@ -1,8 +1,6 @@
 services:
   server:
-    image: scmp-server:v1.1
-    build:
-      context: ./server
+    image: mohamad98/scmp-server:v1.1
     ports:
       - 5000:5000
     environment:
@@ -22,26 +20,16 @@ services:
       - CLOUDINARY_CLOUD_NAME=dunzcbcnb
       - CLOUDINARY_API_KEY=637414892488137
       - CLOUDINARY_API_SECRET=d0iM-YIul-uMuy_iH5DteafAPCM
-
-    volumes:
-      - ./server:/app:cache
-      - /app/node_modules
     networks:
       - scmp-test
 
   client:
-    image: scmp-client:v1.1
+    image: mohamad98/scmp-client:v1.1
     stdin_open: true
-    build:
-      context: ./client
     ports:
       - 3000:3000
     environment:
-      - WATCHPACK_POLLING=true
       - http_proxy=http://server:5000
-    volumes:
-      - ./client:/app:cache
-      - /app/node_modules
     networks:
       - scmp-test
     depends_on:
