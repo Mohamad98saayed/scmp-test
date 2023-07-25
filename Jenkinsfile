@@ -16,7 +16,7 @@ pipeline {
 
     stage('Build app packages') {
       steps {
-        sh 'Docker Compose build'
+        sh 'docker compose build'
       }
     }
 
