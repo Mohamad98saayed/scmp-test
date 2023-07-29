@@ -9,8 +9,7 @@ pipeline {
 
     stage('ssh into server') {
       steps {
-        sh '''ssh -i /var/mern-keypair.pem ubuntu@3.64.47.63
-ubuntu@3.64.47.63 \'git clone https://github.com/Mohamad98saayed/scmp-test\''''
+        sh 'ssh -i /var/mern-keypair.pem ubuntu@3.64.47.63'
       }
     }
 
